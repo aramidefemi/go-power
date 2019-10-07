@@ -1,4 +1,5 @@
 github.com/aramidefemi/go-power v0.0.0-20190926132914-dfd07e5eb6c8 h1:ISwXgdM/ly8KXW9r+WlyEntgKV0aZLaA+wczpxIJF0E=
+github.com/aramidefemi/go-power v0.0.0-20191002073541-910eccdd2b63 h1:0YMU1H0SmlZMhA830ZfS8RMq97WtK5pvk9fN0INBd2Q=
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible h1:7qlOGliEKZXTDg6OTjfoBKDXWrumCAMpl/TFQ4/5kLM=
