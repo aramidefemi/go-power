@@ -17,7 +17,7 @@ var URL string = "https://api.twilio.com/2010-04-01/Accounts/AC407b314f5a77b86f3
 func keepAppAlive() {
 	println("I am runnning task.")
 	client := &http.Client{}
-	req, err := http.NewRequest("POST", "https://go-power.herokuapp.com/", nil)
+	req, err := http.NewRequest("GET", "https://go-power.herokuapp.com/", nil)
 	resp, err := client.Do(req)
 	bodyText, err := ioutil.ReadAll(resp.Body)
 	s := string(bodyText)
