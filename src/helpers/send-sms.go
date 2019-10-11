@@ -9,7 +9,8 @@ import (
 
 	"github.com/aramidefemi/go-power/src/config"
 	"github.com/gin-gonic/gin"
-	"github.com/prprprus/scheduler"
+    "github.com/prprprus/scheduler"
+    "encoding/json"
 )
 
 var URL string = "https://api.twilio.com/2010-04-01/Accounts/AC407b314f5a77b86f3605c3fa46fecb72/Messages.json"
@@ -21,21 +22,38 @@ func keepAppAlive() {
 	resp, err := client.Do(req)
 	bodyText, err := ioutil.ReadAll(resp.Body)
 	s := string(bodyText)
+
 	println("body", resp.Status, s, err)
+	findSms()
 }
-// entry point of the app
+// StartApp entry point of the app
 func StartApp(c *gin.Context) {
-	dt := time.Now()
+    dt := time.Now()
+    hour,min,sec := dt.Clock()
+    
 	s, err := scheduler.NewScheduler(1000)
 	if err != nil {
 		println(err) // just example
 	}
-	s.Delay().Minute(1).Do(keepAppAlive)
+	s.Delay().Minute(20).Do(keepAppAlive) 
+    // findSms()
+    println(hour,min,sec)
+    var Dhour int = hour
+	c.JSONP(200, "App Has Started Yeeeee: "+dt.String()+" hours: "+string(Dhour))
+}
+func findSms() { 
+    client := &http.Client{}
+	req, err := http.NewRequest("GET", "https://api.adviceslip.com/advice", nil)
+	resp, err := client.Do(req)
+	bodyText, err := ioutil.ReadAll(resp.Body)
+    s := string(bodyText)
 
-    // var message string
-    // message = "Sent from golang using scheduler time is: "
-	// // s.Delay().Minute(1).Do(sendSms, message+dt.String())
-	c.JSONP(200, "App Has Started Yeeeee"+dt.String())
+    var data map[string]map[string]string
+    json.Unmarshal([]byte(bodyText), &data)
+
+    println("body --- ", resp.Status, s,  err) 
+    var  advice string = data["slip"]["advice"]
+    sendSms(advice)
 }
 func sendSms(message string) {
 	client := &http.Client{}
