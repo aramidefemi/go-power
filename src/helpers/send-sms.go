@@ -32,10 +32,10 @@ func StartApp(c *gin.Context) {
 	}
 	s.Delay().Minute(1).Do(keepAppAlive)
 
-    var message string
-    message = "Sent from golang using scheduler time is: "
-	s.Delay().Minute(1).Do(sendSms, message+dt.String())
-	c.JSONP(200, "App Has Started Yeeeee")
+    // var message string
+    // message = "Sent from golang using scheduler time is: "
+	// // s.Delay().Minute(1).Do(sendSms, message+dt.String())
+	c.JSONP(200, "App Has Started Yeeeee"+dt.String())
 }
 func sendSms(message string) {
 	client := &http.Client{}
