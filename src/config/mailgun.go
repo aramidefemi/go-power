@@ -20,7 +20,8 @@ type Config struct {
     UseCommand bool
 }
 
-var MailConfig Config = {
+// MailConfig details
+var MailConfig = Config {
 	Host:     "smtp.mailgun.org",
 	Username: "postmaster",
 	Password: "38304272b8ee5c176d5961dc155b2417",

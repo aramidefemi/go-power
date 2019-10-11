@@ -1,4 +1,4 @@
-module go-power.com/src
+module github.com/aramidefemi/go-power
 
 go 1.13
 
