@@ -7,7 +7,7 @@ import (
 )
 
 func sayHi (c *gin.Context) { 
-	helpers.SendSms(c)
+	helpers.StartApp(c)
 }
 func main ()  {
 	fmt.Printf("Hello Visitor!!")
