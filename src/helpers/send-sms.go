@@ -10,7 +10,6 @@ import (
 	"github.com/aramidefemi/go-power/src/config"
 	"github.com/gin-gonic/gin"
 	"github.com/prprprus/scheduler"
-	"github.com/sfreiberg/gotwilio"
 )
 
 var URL string = "https://api.twilio.com/2010-04-01/Accounts/AC407b314f5a77b86f3605c3fa46fecb72/Messages.json"
