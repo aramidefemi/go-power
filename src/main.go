@@ -9,7 +9,7 @@ import (
 
 func main ()  { 
 	app := gin.Default();
-	routes.AppRoutes()
+	routes.AppRoutes(app)
 	controllers.StartApp()
 	app.Run();
 }
