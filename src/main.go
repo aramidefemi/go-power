@@ -1,19 +1,15 @@
 package main
 
-import (
-	"fmt"
+import ( 
 	"github.com/gin-gonic/gin"
-	"github.com/aramidefemi/go-power/src/helpers"
+	"github.com/aramidefemi/go-power/src/controllers"
+	"github.com/aramidefemi/go-power/src/routes"
 )
+ 
 
-func sayHi (c *gin.Context) { 
-	helpers.StartApp(c)
-}
-func main ()  {
-	fmt.Printf("Hello Visitor!!")
-
+func main ()  { 
 	app := gin.Default();
-
-	app.GET("/", sayHi)
+	routes.AppRoutes()
+	controllers.StartApp()
 	app.Run();
 }
