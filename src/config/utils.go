@@ -11,10 +11,10 @@ var TwilloURL string = "https://api.twilio.com/2010-04-01/Accounts/AC407b314f5a7
 var Client *http.Client = &http.Client{}
 
 // AccountSid for twillo
-var AccountSid string = "AC407b314f5a77b86f3605c3fa46fecb72"
+var AccountSid string ; 
 
 // AuthToken for twillo
-var AuthToken string = "2d4cd27c8b0ed302ed605ef91671a07b"
+var AuthToken string ;
 
 // TwilloNumber used in twillo smses
-var TwilloNumber string = "+12563636274";
+var TwilloNumber string ;
