@@ -15,7 +15,7 @@ import (
 
 var URL string = "https://api.twilio.com/2010-04-01/Accounts/AC407b314f5a77b86f3605c3fa46fecb72/Messages.json"
 
-func keepAppAlive() {
+func keepAppAlive(Dhour int) {
 	println("I am runnning task.")
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", "https://go-power.herokuapp.com/", nil)
@@ -24,7 +24,9 @@ func keepAppAlive() {
 	s := string(bodyText)
 
 	println("body", resp.Status, s, err)
-	findSms()
+	if Dhour == 6 || Dhour == 12 {
+		findSms()
+	}
 }
 // StartApp entry point of the app
 func StartApp(c *gin.Context) {
@@ -35,10 +37,11 @@ func StartApp(c *gin.Context) {
 	if err != nil {
 		println(err) // just example
 	}
-	s.Delay().Minute(20).Do(keepAppAlive) 
+	 
     // findSms()
     println(hour,min,sec)
-    var Dhour int = hour
+	var Dhour int = hour
+	s.Delay().Minute(20).Do(keepAppAlive,Dhour)
 	c.JSONP(200, "App Has Started Yeeeee: "+dt.String()+" hours: "+string(Dhour))
 }
 func findSms() { 
