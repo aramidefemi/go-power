@@ -24,7 +24,7 @@ func keepAppAlive(Dhour int) {
 	s := string(bodyText)
 
 	println("body", resp.Status, s, err)
-	if Dhour == 6 || Dhour == 12 {
+	if Dhour == 12 || Dhour == 1 {
 		findSms()
 	}
 }
