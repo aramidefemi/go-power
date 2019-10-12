@@ -6,8 +6,7 @@ import (
 )
 
 // AppRoutes declares apps routes
-func AppRoutes ()  { 
-	app := gin.Default();
+func AppRoutes (app *gin.Engine)  {  
 	app.GET("/", controllers.GreetApp)
 	app.GET("/motun", func (c *gin.Context) { controllers.SendSmsTo("+2348100026809") } ) 
 }
