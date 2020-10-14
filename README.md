@@ -5,10 +5,10 @@ Super fast Golang mvc boiler plates avoids all the noise and just runs effortles
 creates 
 
 ---
-GoLang MVC Pattern
-GoLang Automation
-GoLang Http requests
-GoLang Twilo Basic SMS Api
+- GoLang MVC Pattern
+- GoLang Automation
+- GoLang Http requests
+- GoLang Twilo Basic SMS Api
 
 - sends sms every morning using twilo
 - it wakes up an heroku instance every 25min
